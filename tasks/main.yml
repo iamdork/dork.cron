@@ -1,0 +1,14 @@
+- name: install cronie package
+  yum:
+    name: cronie
+
+
+- name: create supervisor config
+  copy:
+    src: cron.ini
+    dest: /etc/supervisord.d/cron.ini
+  register: supervisord
+
+- name: reload supervisord
+  shell: supervisorctl reload
+  when: supervisord.changed
