@@ -1,6 +1,6 @@
 dork.cron
 =========
 
-Cronjobs for _Dork containers.
+Cronjobs for Dork_ containers.
 
 .. _Dork: https://github.com/iamdork/dork
