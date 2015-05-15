@@ -6,4 +6,9 @@
   copy:
     src: cron.ini
     dest: /etc/supervisord.d/cron.ini
-  notify: reload supervisor
+  register: supervisor
+
+- supervisorctl:
+    name: cron
+    state: restarted
+  when: supervisor.changed
