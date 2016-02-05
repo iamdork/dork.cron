@@ -6,9 +6,8 @@
   copy:
     src: cron.ini
     dest: /etc/supervisord.d/cron.ini
-  register: supervisor
 
-- supervisorctl:
-    name: cron
-    state: restarted
-  when: supervisor.changed
+- name: start cron
+  supervisorctl:
+    name: crond
+    state: present
